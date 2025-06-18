@@ -1,3 +1,5 @@
+# Cyrillic_to_Latin_Bot
+
 Телеграм-бот, преобразующий ФИО с кириллицы в латиницу.
 
 
@@ -7,11 +9,11 @@
 
 2. В корне проекта (там же, где dockerfile) соберите образ:
     
-    docker build .
+    docker build -t my-telegram-bot .
 
-3. Запустите контейнер:
+3. Запустите контейнер, изменив расширение .env.example на .env(добавьте в этот файл ваш ТОКЕН):
     
-    docker run -d -p 80:80 <НАЗВАНИЕ_КОНТЕЙНЕРА>
+    docker run --env-file .env my-telegram-bot
 
 4. Проверьте, что бот запустился, просмотрев логи:
     docker logs <НАЗВАНИЕ_КОНТЕЙНЕРА>
@@ -35,10 +37,10 @@
 
     pip install -r requirements.txt
 
-4. Запустите бота:
+4. Запустите бота, изменив расширение .env.example на .env(добавьте в этот файл ваш ТОКЕН):
 
     python bot.py
 
 
 
-# Cyrillic_to_Latin_Bot
+

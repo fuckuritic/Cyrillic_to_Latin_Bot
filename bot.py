@@ -85,9 +85,13 @@ translit_table = {
 # 7349526718 - это id нашего бота, уникальный ключ,
 # по которому можно идентифицировать нашего бота
 # AAGdPhPRvAZuSEt78Ru5XPnM3dnTU9P5ss0 - это ключ подключения к серверам ТГ
-# TOKEN = os.getenv('TOKEN')
+from dotenv import load_dotenv
 
-bot = Bot(token="7349526718:AAGdPhPRvAZuSEt78Ru5XPnM3dnTU9P5ss0")
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+
+bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 logging.basicConfig(
@@ -135,7 +139,7 @@ async def send_translit_fio(message: Message):
     await message.answer(latin)
 
 
-# 5. Запуск процесса пуллинга
+# 5. Запуск процесса поллинга
 if __name__ == "__main__":
     dp.run_polling(bot)
 
